@@ -1,0 +1,52 @@
+$appBackground: #202124;
+$sectionBackground: #27272a;
+$headerColor: #a1a1aa;
+$headerActiveColor: #ffffff;
+$textColor: #ffffff;
+$borderColor: #414144;
+
+@mixin sectionHeader {
+  font-size: 18px;
+  line-height: 21px;
+  color: $textColor;
+}
+
+@mixin blockHeader {
+  font-size: 14px;
+  line-height: 16px;
+  color: $headerColor;
+}
+
+@mixin sectionText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: $textColor;
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexColumnStart {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@mixin flexRowStart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin sectionGrid {
+  display: grid;
+  grid-template-columns: 234px 1fr;
+  grid-template-rows: 1fr;
+}
+

@@ -1,0 +1,47 @@
+@import './service.scss';
+
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $appBackground;
+}
+
+a {
+  text-decoration: none;
+  color: $headerColor;
+  &:active {
+    color: $headerActiveColor;
+  }
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 234px 1fr;
+  grid-template-rows: 44px 1fr;
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+
+.empty-page__placeholder {
+  grid-column: 1 / -1;
+  grid-row: 2 / -1;
+  font-size: 64px;
+  justify-self: center;
+  align-self: center;
+  color: $headerColor;
+}

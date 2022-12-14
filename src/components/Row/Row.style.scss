@@ -1,0 +1,74 @@
+@import '../../service.scss';
+
+.row {
+  @include flexRowStart();
+  height: 60px;
+  width: 100%;
+  &__folder {
+    position: relative;
+    @include flexRowStart();
+    min-width: 110px;
+    max-width: 200px;
+    height: 30px;
+    justify-content: flex-start;
+    padding-left: 20px;
+    cursor: pointer;
+    &_child {
+      padding-left: 40px;
+      > .row__control-wrapper {
+        left: 30px;
+      }
+    }
+    &_file {
+      padding-left: 70px;
+      > .row__control-wrapper {
+        left: 60px;
+      }
+    }
+
+    &:hover {
+      .row__control-wrapper {
+        display: flex;
+      }
+    }
+  }
+
+  &__main-icon,
+  &__control-icon {
+    width: 30px;
+    object-fit: contain;
+  }
+  &__control-wrapper {
+    position: absolute;
+    display: none;
+    align-items: center;
+    left: 10px;
+    background-color: $borderColor;
+    border-radius: 5px;
+    padding: 2px 10px;
+    gap: 2px;
+  }
+  &__data-cell,
+  &__input-cell {
+    @include sectionText();
+    padding: 12px;
+    &:nth-child(2) {
+      flex: 1;
+      min-width: 300px;
+      width: 100%;
+    }
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      min-width: max-content;
+      max-width: 200px;
+      width: 100%;
+    }
+  }
+  &__input-cell {
+    outline: none;
+    border: 1px solid $borderColor;
+    background-color: transparent;
+  }
+}

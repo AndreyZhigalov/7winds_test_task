@@ -1,0 +1,52 @@
+@import '../../service.scss';
+
+.navbar {
+  height: 44px;
+  width: 100%;
+  max-width: 1920px;
+  padding: 0 20px;
+  background-color: $sectionBackground;
+  border-bottom: 1px solid $borderColor;
+  grid-column: 1/ -1;
+ 
+   &__list {
+    @include flexCenter();
+    justify-content: flex-start;
+    list-style: none;
+    height: 100%;
+  }
+  &__item {
+    height: 100%;
+    @include flexCenter();
+    &:nth-child(1) {
+      margin-right: 20px;
+    }
+    &:nth-child(2) {
+      margin-right: 31px;
+    }
+    &:nth-child(3) {
+      margin-right: 28px;
+    }
+    .apps {
+      height: 100%;
+    }
+    .return {
+      height: 100%;
+    }
+    a {
+      @include flexCenter();
+      @include blockHeader();
+      height: 100%;
+      text-decoration: none;
+      color: $headerColor;
+      border-bottom: 2px solid transparent;
+      &.active {
+        color: $headerActiveColor;
+        border-bottom: 2px solid $textColor;
+      }
+    }
+  }
+  &__icon {
+    
+  }
+}

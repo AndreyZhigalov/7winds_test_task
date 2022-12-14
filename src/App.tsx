@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from './Redux/hooks';
+import { FetchUser, setUserData } from './Redux/userSlice';
+
+import Navbar from './components/Navbar/Navbar';
+import Apps from './pages/Apps';
+import Managing from './pages/Managing';
+import View from './pages/View';
+import { setRowList } from './Redux/rowListSlice';
 
 function App() {
+  const dispatch = useAppDispatch();
+  const {status, userData} = useAppSelector((state) => state.userSlice);
+
+  React.useEffect(() => {
+    dispatch(setUserData());    
+  }, []);
+
+  React.useEffect(() => {
+    if (status === FetchUser.SUCCESS) {
+      dispatch(setRowList(userData.id));
+    }
+  }, [status]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar />
+      <Routes>
+        <Route path={''} element={<View />} />
+        <Route path={'view'} element={<View />} />
+        <Route path={'settings'} element={<Managing />} />
+        <Route path={'apps'} element={<Apps />} />
+        <Route path={'*'} element={<h1>404</h1>} />
+      </Routes>
     </div>
   );
 }
