@@ -1,18 +1,21 @@
 @import '../../service.scss';
 
 .row {
+  position: relative;
   @include flexRowStart();
   height: 60px;
-  width: 100%;
+  width: 100%; 
   &__folder {
     position: relative;
     @include flexRowStart();
+    padding-left: 20px;
     min-width: 110px;
     max-width: 200px;
     height: 30px;
     justify-content: flex-start;
-    padding-left: 20px;
     cursor: pointer;
+  
+    z-index: 5;
     &_child {
       padding-left: 40px;
       > .row__control-wrapper {
@@ -37,11 +40,13 @@
   &__control-icon {
     width: 30px;
     object-fit: contain;
+    z-index: 5;
   }
   &__control-wrapper {
     position: absolute;
     display: none;
     align-items: center;
+    z-index: 5;
     left: 10px;
     background-color: $borderColor;
     border-radius: 5px;
@@ -61,7 +66,7 @@
     &:nth-child(4),
     &:nth-child(5),
     &:nth-child(6) {
-      min-width: max-content;
+         min-width: 100px;      
       max-width: 200px;
       width: 100%;
     }

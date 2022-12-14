@@ -1,10 +1,32 @@
 @import '../../service.scss';
 
 .content {
-  height: 100% ;
+  position: relative;
+  height: 100%;
   width: 100%;
   overflow-y: auto;
-
+  &__row-wrapper {
+    position: relative;
+  }
+ 
+  &__line {
+    position: absolute;
+    top: 39px;
+    left: 33px;
+    &_row {
+    }
+    &_child {
+      top: 31px;
+      left: 33px;
+    }
+    &_file {
+      top: 30px;
+      left: 53px;
+    }
+  }
+   &__V-line_child {
+    left: 52px;
+  }
   &__project-tabs {
     @include sectionHeader();
     @include flexRowStart();
@@ -45,7 +67,7 @@
     &:nth-child(4),
     &:nth-child(5),
     &:nth-child(6) {
-      min-width: max-content;
+      min-width: 100px;
       max-width: 200px;
       width: 100%;
     }

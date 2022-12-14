@@ -1,6 +1,6 @@
 import React from 'react';
 import { OutlayRowRequest, RowType } from '../../App.types';
-import { useAppDispatch } from '../../Redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
 import {
   changeStatus,
   createChild,
@@ -28,6 +28,7 @@ const Row: React.FC<{
   parentId: number | null;
 }> = ({ row, icon, status, rowType, parentId }) => {
   const dispatch = useAppDispatch();
+  const rowlist = useAppSelector(state => state.rowListSlice.rowList)
 
   const [rowNameInput, setRowNameInput] = React.useState<string>(row.rowName);
   const rowNameInputRef = React.useRef<HTMLInputElement>(null);
@@ -62,9 +63,7 @@ const Row: React.FC<{
     if (rowType === 'row') {
       dispatch(createRow(''));
       dispatch(changeStatus(CreateRowStatus.CREATING));
-    }if (rowType === 'child' || rowType === 'file') {
-      dispatch(createChild(parentId as number));
-      dispatch(changeStatus(CreateRowStatus.CREATING));
+      dispatch(setCurrentRow(rowlist.length));
     } else {
       dispatch(changeStatus(CreateRowStatus.UPDATING));
     }
@@ -108,7 +107,7 @@ const Row: React.FC<{
             }`}>
             <img className="row__main-icon" src={icon} alt="" />
             <div className="row__control-wrapper">
-              <img className="row__control-icon" src={icon} alt=""  />
+              <img className="row__control-icon" src={icon} alt="" onClick={createNewRow} />
               {rowType === 'row' && (
                 <img
                   className="row__control-icon"

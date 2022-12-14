@@ -69,7 +69,7 @@ function addRowListItem(row: RowType, parendID: number): RowType {
 
 function updateRowListItem(row: RowType, newData: RowType, rowID: number): RowType {
   if (row.id === rowID) {
-    return newData;
+    return { ...newData , child: [...row.child]};
   } else {
     return { ...row, child: row.child.map((child) => updateRowListItem(child, newData, rowID)) };
   }
