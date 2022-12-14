@@ -38,19 +38,20 @@ const userSlice = createSlice({
   },
 });
 
-export const setUserData = createAsyncThunk('setUserDataStatus', async () => {
+export const setUserData = createAsyncThunk('setUserDataStatus', async (_, Thunk) => {
   if (localStorage.getItem('ID')) {
     const id = Number(localStorage.getItem('ID'));
     const rowName = localStorage.getItem('rowName') as string;
     return { id, rowName } as EntityResponse;
   } else {
-    axios
-      .post<EntityResponse>('http://185.244.172.108:8081/v1/outlay-rows/entity/create')
-      .then(({ data }) => {
-        localStorage.setItem('ID', JSON.stringify(data.id));
-        localStorage.setItem('rowName', JSON.stringify(data.rowName));
-        return data as EntityResponse;
-      });
+ 
+     const {data} = await axios
+        .post<EntityResponse>('http://185.244.172.108:8081/v1/outlay-rows/entity/create')
+       
+          localStorage.setItem('ID', JSON.stringify(data.id));
+          localStorage.setItem('rowName', JSON.stringify(data.rowName));
+          return data as EntityResponse;
+  
   }
 });
 

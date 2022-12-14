@@ -11,10 +11,10 @@ import { setRowList } from './Redux/rowListSlice';
 
 function App() {
   const dispatch = useAppDispatch();
-  const {status, userData} = useAppSelector((state) => state.userSlice);
+  const { status, userData } = useAppSelector((state) => state.userSlice);
 
   React.useEffect(() => {
-    dispatch(setUserData());    
+    dispatch(setUserData());
   }, []);
 
   React.useEffect(() => {
@@ -31,7 +31,10 @@ function App() {
         <Route path={'view'} element={<View />} />
         <Route path={'settings'} element={<Managing />} />
         <Route path={'apps'} element={<Apps />} />
-        <Route path={'*'} element={<h1>404</h1>} />
+        <Route
+          path={'*'}
+          element={<span className="empty-page__placeholder">Страница не найдена</span>}
+        />
       </Routes>
     </div>
   );

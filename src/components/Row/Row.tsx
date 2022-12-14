@@ -108,7 +108,7 @@ const Row: React.FC<{
             }`}>
             <img className="row__main-icon" src={icon} alt="" />
             <div className="row__control-wrapper">
-              <img className="row__control-icon" src={icon} alt="" onClick={createNewRow} />
+              <img className="row__control-icon" src={icon} alt=""  />
               {rowType === 'row' && (
                 <img
                   className="row__control-icon"

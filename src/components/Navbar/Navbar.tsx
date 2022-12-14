@@ -12,22 +12,22 @@ function Navbar() {
   return (
     <nav className="navbar">
       <ul className="navbar__list">
-        <li className='navbar__item'>
+        <li className="navbar__item">
           <Link to={'apps'}>
-            <img className='navbar__icon' src={appsIcon} alt="apps" />
+            <img className="navbar__icon" src={appsIcon} alt="apps" />
           </Link>
         </li>
-        <li className='navbar__item'>
-          <Link to={'../'}>
-            <img className='navbar__icon' src={returnArrow} alt="return" />
+        <li className="navbar__item">
+          <Link to={'/7winds_test_task'}>
+            <img className="navbar__icon" src={returnArrow} alt="return" />
           </Link>
         </li>
-        <li className='navbar__item'>
+        <li className="navbar__item">
           <Link to={'view'} className={pathname === '/view' ? 'active' : ''}>
             Просмотр
           </Link>
         </li>
-        <li className='navbar__item'>
+        <li className="navbar__item">
           <Link to={'settings'} className={pathname === '/settings' ? 'active' : ''}>
             Управление
           </Link>

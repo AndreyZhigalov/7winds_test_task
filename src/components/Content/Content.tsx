@@ -10,7 +10,9 @@ import './Content.style.scss';
 
 function Content() {
   const { rowList, status, currentRow } = useAppSelector((state) => state.rowListSlice);
-  let row = rowList[currentRow];
+  let row = rowList?.[currentRow];
+
+  
 
   return (
     <section className="content">
@@ -27,7 +29,7 @@ function Content() {
           <li key={6} className="content__category">Сметная прибыль</li>
         </ul>
         <div className="content__container">
-          {!!rowList.length && (
+          {!!rowList?.length && !!row && (
             <>
               {!!row.id && (
                 <Row

@@ -2,7 +2,7 @@
   "name": "seven_winds_studio_test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://andreyzhigalov.github.io/7winds_test_task",
+  "homepage": "https://andreyzhigalov.github.io/7winds_test_task/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
     "@testing-library/jest-dom": "^5.16.5",

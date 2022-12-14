@@ -16,23 +16,7 @@ export enum CreateRowStatus {
 }
 
 const initialState = {
-  rowList: [
-    {
-      child: [],
-      equipmentCosts: 0,
-      estimatedProfit: 0,
-      id: 0,
-      machineOperatorSalary: 0,
-      mainCosts: 0,
-      materials: 0,
-      mimExploitation: 0,
-      overheads: 0,
-      rowName: '',
-      salary: 0,
-      supportCosts: 0,
-      total: 0,
-    },
-  ] as RowType[],
+  rowList: [  ] as RowType[],
   status: CreateRowStatus.WAITING,
   currentRow: 0,
 };
@@ -97,7 +81,9 @@ const rowListSlice = createSlice({
   reducers: {
     createRow(state, action: PayloadAction<string>) {
       let tempID = Math.round(Math.random() * 1e16);
-      state.rowList = state.rowList.concat({ ...rowTemplate, id: tempID, rowName: action.payload });
+      state.rowList = !!state.rowList
+        ? [...state.rowList, { ...rowTemplate, id: tempID, rowName: action.payload }]
+        : [{ ...rowTemplate, id: tempID, rowName: action.payload }];
     },
     createChild(state, action: PayloadAction<number>) {
       const id = action.payload;

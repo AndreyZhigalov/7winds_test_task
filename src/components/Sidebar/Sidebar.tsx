@@ -28,7 +28,7 @@ function Sidebar() {
     setInputValue('');
     dispatch(createRow(inputValue));
     dispatch(changeStatus(CreateRowStatus.CREATING));
-    dispatch(setCurrentRow(rowList.length));
+    dispatch(setCurrentRow(rowList?.length ?? 0));
   };
 
   const submitInput = (event: React.KeyboardEvent<HTMLElement>) => {
