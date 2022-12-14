@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/7winds_test_task/static/css/main.2486dde2.css",
+    "main.js": "/7winds_test_task/static/js/main.2c7f977d.js",
+    "static/js/787.d583fbea.chunk.js": "/7winds_test_task/static/js/787.d583fbea.chunk.js",
+    "index.html": "/7winds_test_task/index.html",
+    "static/media/firstLevelFolder.svg": "/7winds_test_task/static/media/firstLevelFolder.be43af2ae544b8a98690ec187bce6d0b.svg",
+    "static/media/icons8-trash-can.svg": "/7winds_test_task/static/media/icons8-trash-can.3a2fa19798d89e9aa0733bebf55e1407.svg",
+    "static/media/apps.svg": "/7winds_test_task/static/media/apps.326e0d11dc6a9251dbb641e05a1f9e63.svg",
+    "static/media/gridPlates.svg": "/7winds_test_task/static/media/gridPlates.a2aa8992a9b2b2beb256.svg",
+    "static/media/file.svg": "/7winds_test_task/static/media/file.d998910e8efad1a402e4690c79e06cc8.svg",
+    "static/media/returnArrow.svg": "/7winds_test_task/static/media/returnArrow.92c6b67111b7ee747fdc6571d9317b1f.svg",
+    "static/media/listArrow.svg": "/7winds_test_task/static/media/listArrow.fc6c4b8161ce2e2fd84e0eb110d19317.svg",
+    "main.2486dde2.css.map": "/7winds_test_task/static/css/main.2486dde2.css.map",
+    "main.2c7f977d.js.map": "/7winds_test_task/static/js/main.2c7f977d.js.map",
+    "787.d583fbea.chunk.js.map": "/7winds_test_task/static/js/787.d583fbea.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2486dde2.css",
+    "static/js/main.2c7f977d.js"
+  ]
+}
