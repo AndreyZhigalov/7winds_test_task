@@ -32,7 +32,7 @@ function App() {
         <Route path={'settings'} element={<Managing />} />
         <Route path={'apps'} element={<Apps />} />
         <Route
-          path={'*'}
+          path={'http://192.168.9.253:3000'}
           element={<span className="empty-page__placeholder">Страница не найдена</span>}
         />
       </Routes>

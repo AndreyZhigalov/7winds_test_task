@@ -16,7 +16,7 @@ export enum CreateRowStatus {
 }
 
 const initialState = {
-  rowList: [  ] as RowType[],
+  rowList: [] as RowType[],
   status: CreateRowStatus.WAITING,
   currentRow: 0,
 };
@@ -69,7 +69,7 @@ function addRowListItem(row: RowType, parendID: number): RowType {
 
 function updateRowListItem(row: RowType, newData: RowType, rowID: number): RowType {
   if (row.id === rowID) {
-    return { ...newData , child: [...row.child]};
+    return { ...newData, child: [...row.child] };
   } else {
     return { ...row, child: row.child.map((child) => updateRowListItem(child, newData, rowID)) };
   }
@@ -127,7 +127,7 @@ const rowListSlice = createSlice({
 
 export const setRowList = createAsyncThunk<void, number>('setRowListStatus', async (id, Thunk) => {
   axios
-    .get<TreeResponse>(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/list`)
+    .get<TreeResponse>(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/list`,  )
     .then(({ data }) => {
       localStorage.setItem('rowsList', JSON.stringify(data));
     });
@@ -141,10 +141,11 @@ export const createRowOnDB = createAsyncThunk<void, { row: OutlayRowRequest; tru
         userData: { id },
       },
     } = Thunk.getState() as RootState;
-   
+
     const { data } = await axios.post<RecalculatedRows>(
       `http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/create`,
       row,
+       
     );
     Thunk.dispatch(updateRow({ newData: { ...data.current, child: [] } as RowType, id: trueID }));
   },
@@ -158,7 +159,13 @@ export const udpateRowOnDB = createAsyncThunk<void, { row: OutlayRowUpdateReques
         userData: { id },
       },
     } = Thunk.getState() as RootState;
-    const {data: {current}} = await axios.post(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/${rowID}/update`, row);
+    const {
+      data: { current },
+    } = await axios.post(
+      `http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/${rowID}/update`,
+      row,
+       
+    );
     Thunk.dispatch(updateRow({ newData: current as RowType, id: rowID }));
   },
 );
@@ -171,7 +178,7 @@ export const deleteRowFromDB = createAsyncThunk<void, number>(
         userData: { id },
       },
     } = Thunk.getState() as RootState;
-    axios.delete(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/${rowID}/delete`);
+    axios.delete(`http://185.244.172.108:8081/v1/outlay-rows/entity/${id}/row/${rowID}/delete`,  );
   },
 );
 
